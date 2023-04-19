@@ -29,11 +29,11 @@ export const Input: FC<InputProps> = (props) => {
                         color: "black",
                         fontWeight: "bold",
                         fontSize: "1.5rem",
-                        px: ".5rem",
+                        px: { sm: ".5rem" },
                     },
                 }}
                 sx={{
-                    width: "9rem",
+                    width: { xs: "6rem", sm: "9em", md: "9em" },
                 }}
                 helperText={props.error && props.errortext}
                 error={props.error}
