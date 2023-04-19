@@ -4,7 +4,7 @@ import SubmitIcon from "@/assets/icon-arrow.svg";
 
 export const Form = () => {
     return (
-        <Box component="form" sx={{ width: "100%" }}>
+        <Box component="form" autoComplete="off" sx={{ width: "100%" }}>
             <Box sx={{ display: "flex", gap: 2, justifyContent: "center" }}>
                 <Input inputlabel="day" errortext="Required" placeholder="DD" />
                 <Input
