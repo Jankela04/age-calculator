@@ -6,17 +6,9 @@ export const Form = () => {
     return (
         <Box component="form" autoComplete="off" sx={{ width: "100%" }}>
             <Box sx={{ display: "flex", gap: 2, justifyContent: "center" }}>
-                <Input inputlabel="day" errortext="Required" placeholder="DD" />
-                <Input
-                    inputlabel="month"
-                    errortext="Required"
-                    placeholder="MM"
-                />
-                <Input
-                    inputlabel="year"
-                    errortext="Required"
-                    placeholder="YYYY"
-                />
+                <Input inputlabel="day" placeholder="DD" />
+                <Input inputlabel="month" placeholder="MM" />
+                <Input inputlabel="year" placeholder="YYYY" />
             </Box>
             <Box
                 sx={{
