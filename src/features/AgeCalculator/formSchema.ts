@@ -21,6 +21,16 @@ export const formSchema = Yup.object().shape({
                 return false;
             }
             return true;
+        })
+        .test("is-in-past", "Must be in the past", function (value) {
+            if (
+                value > new Date().getDate() &&
+                this.parent.month - 1 === new Date().getMonth() &&
+                this.parent.year === new Date().getFullYear()
+            ) {
+                return false;
+            }
+            return true;
         }),
     month: Yup.number()
         .required("Required")
@@ -29,7 +39,16 @@ export const formSchema = Yup.object().shape({
             "is-valid-day",
             "Must be valid month",
             (value) => value >= 1 && value <= 12
-        ),
+        )
+        .test("is-in-past", "Must be in the past", function (value) {
+            if (
+                value - 1 > new Date().getMonth() &&
+                this.parent.year === new Date().getFullYear()
+            ) {
+                return false;
+            }
+            return true;
+        }),
     year: Yup.number()
         .required("Required")
         .typeError("Must be valid year")
