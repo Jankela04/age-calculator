@@ -2,7 +2,8 @@ import { Input } from "@/components/Input";
 import { Box, Button } from "@mui/material";
 import SubmitIcon from "@/assets/icon-arrow.svg";
 import { Formik, Form as FormikForm, Field } from "formik";
-import { formSchema, TForm } from "../formSchema";
+import { formSchema, TDate } from "../formSchema";
+import { calculateAge } from "../utils/calculateAge";
 
 const initialValues = {
     day: "",
@@ -10,7 +11,7 @@ const initialValues = {
     year: "",
 };
 
-const handleSubmit = (data: TForm) => {
+const handleSubmit = (data: TDate) => {
     console.log(data);
 };
 
@@ -22,7 +23,7 @@ export const Form = () => {
             initialValues={initialValues}
             onSubmit={handleSubmit}
         >
-            {({ errors, touched }) => (
+            {({ errors, touched, values }) => (
                 <FormikForm style={{ width: "100%" }} autoComplete="off">
                     <Box
                         sx={{
@@ -74,6 +75,9 @@ export const Form = () => {
                         <Button
                             type="submit"
                             variant="contained"
+                            onClick={() => {
+                                console.log(calculateAge(values));
+                            }}
                             sx={{
                                 padding: 2,
                                 borderRadius: "50%",

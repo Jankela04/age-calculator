@@ -37,4 +37,4 @@ export const formSchema = Yup.object().shape({
         .max(new Date().getFullYear(), "Must be in the past"),
 });
 
-export type TForm = Yup.InferType<typeof formSchema>;
+export type TDate = Yup.InferType<typeof formSchema>;
