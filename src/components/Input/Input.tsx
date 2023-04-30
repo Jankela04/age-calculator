@@ -31,6 +31,11 @@ export const Input: FC<InputProps> = (props) => {
                 }}
                 sx={{
                     width: { xs: "6rem", sm: "9em", md: "9em" },
+                    "& .MuiFormHelperText-root": {
+                        m: 0,
+                        my: 1,
+                        fontStyle: "italic",
+                    },
                 }}
                 variant="outlined"
                 placeholder={props.placeholder}

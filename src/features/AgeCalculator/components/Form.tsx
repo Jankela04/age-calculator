@@ -11,7 +11,6 @@ const initialValues = {
 };
 
 const handleSubmit = (data: TForm) => {
-    // todo validate if date is valid
     console.log(data);
 };
 
@@ -45,7 +44,11 @@ export const Form = () => {
                             name="month"
                             placeholder="MM"
                             inputlabel="month"
-                            error={touched.month && Boolean(errors.month)}
+                            error={
+                                touched.month &&
+                                (Boolean(errors.month) ||
+                                    errors.day === "Must be valid date")
+                            }
                             helperText={touched.month && errors.month}
                         />
                         <Field
@@ -53,7 +56,11 @@ export const Form = () => {
                             name="year"
                             placeholder="YYYY"
                             inputlabel="year"
-                            error={touched.year && Boolean(errors.year)}
+                            error={
+                                touched.year &&
+                                (Boolean(errors.year) ||
+                                    errors.day === "Must be valid date")
+                            }
                             helperText={touched.year && errors.year}
                         />
                     </Box>
