@@ -1,5 +1,7 @@
+import { AgeCalculator } from "@/features/AgeCalculator";
+
 function App() {
-    return <div>Hello</div>;
+    return <AgeCalculator />;
 }
 
 export default App;
