@@ -16,6 +16,5 @@ export const calculateAge = (date: TDate): TDate => {
             days += new Date(now.getFullYear(), now.getMonth(), 0).getDate();
         }
     }
-    console.log({ year: years, month: months, day: days });
     return { year: years, month: months, day: days };
 };

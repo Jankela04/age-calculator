@@ -21,10 +21,10 @@ type Props = {
         } | null>
     >;
 };
-export const Form: FC<Props> = ({ setAge: setValue }) => {
+export const Form: FC<Props> = ({ setAge }) => {
     const handleSubmit = (data: TDate) => {
         const age = calculateAge(data);
-        setValue(age);
+        setAge(age);
     };
     return (
         <Formik
@@ -33,7 +33,7 @@ export const Form: FC<Props> = ({ setAge: setValue }) => {
             initialValues={initialValues}
             onSubmit={handleSubmit}
         >
-            {({ errors, touched, values }) => (
+            {({ errors, touched, isValid }) => (
                 <FormikForm style={{ width: "100%" }} autoComplete="off">
                     <Box
                         sx={{
@@ -86,7 +86,7 @@ export const Form: FC<Props> = ({ setAge: setValue }) => {
                             type="submit"
                             variant="contained"
                             onClick={() => {
-                                console.log(calculateAge(values));
+                                if (!isValid) setAge(null);
                             }}
                             sx={{
                                 padding: 2,
