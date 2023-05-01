@@ -11,10 +11,10 @@ export const calculateAge = (date: TDate): TDate => {
     if (months < 0 || (months === 0 && days < 0)) {
         years--;
         months += 12;
-        if (days < 0) {
-            months--;
-            days += new Date(now.getFullYear(), now.getMonth(), 0).getDate();
-        }
+    }
+    if (days < 0) {
+        months--;
+        days += new Date(now.getFullYear(), now.getMonth(), 0).getDate();
     }
     return { year: years, month: months, day: days };
 };
