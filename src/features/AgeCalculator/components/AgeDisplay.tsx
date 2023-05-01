@@ -1,12 +1,10 @@
 import { Box, Typography } from "@mui/material";
-
 import { FC } from "react";
+import { TDate } from "../formSchema";
 
-const DAYS_VALUE = "--";
-const MONTHS_VALUE = "--";
-const YEARS_VALUE = "--";
+type Props = { age: null | TDate };
 
-export const AgeDisplay = () => {
+export const AgeDisplay: FC<Props> = ({ age }) => {
     return (
         <Box
             sx={{
@@ -15,14 +13,14 @@ export const AgeDisplay = () => {
                 gap: 4,
             }}
         >
-            <Row value={YEARS_VALUE} type="years" />
-            <Row value={MONTHS_VALUE} type="months" />
-            <Row value={DAYS_VALUE} type="days" />
+            <Row value={!age ? "--" : age.year} type="years" />
+            <Row value={!age ? "--" : age.month} type="months" />
+            <Row value={!age ? "--" : age.day} type="days" />
         </Box>
     );
 };
 
-const Row: FC<{ value: string; type: "years" | "months" | "days" }> = (
+const Row: FC<{ value: string | number; type: "years" | "months" | "days" }> = (
     props
 ) => {
     return (
@@ -43,7 +41,7 @@ const Row: FC<{ value: string; type: "years" | "months" | "days" }> = (
     );
 };
 
-const DisplayValue: FC<{ value: string }> = ({ value }) => {
+const DisplayValue: FC<{ value: string | number }> = ({ value }) => {
     return (
         <Typography
             sx={{

@@ -4,6 +4,7 @@ import SubmitIcon from "@/assets/icon-arrow.svg";
 import { Formik, Form as FormikForm, Field } from "formik";
 import { formSchema, TDate } from "../formSchema";
 import { calculateAge } from "../utils/calculateAge";
+import { FC } from "react";
 
 const initialValues = {
     day: "",
@@ -11,11 +12,20 @@ const initialValues = {
     year: "",
 };
 
-const handleSubmit = (data: TDate) => {
-    console.log(data);
+type Props = {
+    setAge: React.Dispatch<
+        React.SetStateAction<{
+            day: number;
+            month: number;
+            year: number;
+        } | null>
+    >;
 };
-
-export const Form = () => {
+export const Form: FC<Props> = ({ setAge: setValue }) => {
+    const handleSubmit = (data: TDate) => {
+        const age = calculateAge(data);
+        setValue(age);
+    };
     return (
         <Formik
             validationSchema={formSchema}
