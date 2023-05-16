@@ -53,6 +53,7 @@ export const formSchema = Yup.object().shape({
         .required("Required")
         .typeError("Must be valid year")
         .positive("Must be valid year")
+        .min(1900, "Must be at least 1900")
         .max(new Date().getFullYear(), "Must be in the past"),
 });
 
