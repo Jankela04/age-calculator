@@ -21,6 +21,27 @@ type Props = {
         } | null>
     >;
 };
+const styles = {
+    form: {
+        width: "100%",
+    },
+    inputContainer: {
+        display: "flex",
+        gap: 2,
+        justifyContent: "center",
+    },
+    buttonContainer: {
+        py: 4,
+        display: "flex",
+        justifyContent: { xs: "center", sm: "flex-end" },
+    },
+    button: {
+        padding: 2,
+        borderRadius: "50%",
+        ":hover": { bgcolor: "black" },
+    },
+};
+
 export const Form: FC<Props> = ({ setAge }) => {
     const handleSubmit = (data: TDate) => {
         const age = calculateAge(data);
@@ -34,14 +55,8 @@ export const Form: FC<Props> = ({ setAge }) => {
             onSubmit={handleSubmit}
         >
             {({ errors, touched, isValid }) => (
-                <FormikForm style={{ width: "100%" }} autoComplete="off">
-                    <Box
-                        sx={{
-                            display: "flex",
-                            gap: 2,
-                            justifyContent: "center",
-                        }}
-                    >
+                <FormikForm style={styles.form} autoComplete="off">
+                    <Box sx={styles.inputContainer}>
                         <Field
                             as={Input}
                             name="day"
@@ -75,24 +90,14 @@ export const Form: FC<Props> = ({ setAge }) => {
                             helperText={touched.year && errors.year}
                         />
                     </Box>
-                    <Box
-                        sx={{
-                            py: 4,
-                            display: "flex",
-                            justifyContent: { xs: "center", sm: "flex-end" },
-                        }}
-                    >
+                    <Box sx={styles.buttonContainer}>
                         <Button
                             type="submit"
                             variant="contained"
                             onClick={() => {
                                 if (!isValid) setAge(null);
                             }}
-                            sx={{
-                                padding: 2,
-                                borderRadius: "50%",
-                                ":hover": { bgcolor: "black" },
-                            }}
+                            sx={styles.button}
                         >
                             <img src={SubmitIcon} alt="submit icon" />
                         </Button>
