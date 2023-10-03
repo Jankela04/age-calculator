@@ -1,7 +1,31 @@
-# age-calculator
-Frontend Mentor Challenge, view an age in years, months, and days
+# Age Calculator
 
-## Running project locally
-- clone the repository `git clone https://github.com/Jankela04/age-calculator.git`
-- install dependencies `npm install`
-- run the development server `npm run dev`
+Frontend Mentor Challenge, view your age in years, months, and days
+
+![demo](design/desktop-completed.jpg)
+
+## Run Locally
+
+Clone the project
+
+```bash
+  git clone https://github.com/jankela04/age-calculator
+```
+
+Go to the project directory
+
+```bash
+  cd age-calculator
+```
+
+Install dependencies
+
+```bash
+  npm install
+```
+
+Start the server
+
+```bash
+  npm run dev
+```
