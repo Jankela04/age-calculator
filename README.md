@@ -2,6 +2,8 @@
 
 Frontend Mentor Challenge, view your age in years, months, and days
 
+[Live Demo](https://age-calculator-jankela04.vercel.app/)
+
 ![demo](design/desktop-completed.jpg)
 
 ## Run Locally
