@@ -4,10 +4,9 @@ import { Box, Link } from "@mui/material";
 function App() {
   const styles = {
     github: {
-      position: "fixed",
-      top: 0,
-      left: "50%",
-      pt: 2,
+      width: "100%",
+      py: 4,
+      "text-align": "center",
     },
   };
   return (

@@ -5,21 +5,20 @@ import { Container } from "@mui/material";
 import { TDate } from "./formSchema";
 
 const styles = {
-    main: {
-        display: "flex",
-        justifyContent: "center",
-        flexDirection: "column",
-        alignItems: "center",
-        minHeight: "100vh",
-    },
+  main: {
+    display: "flex",
+    justifyContent: "center",
+    flexDirection: "column",
+    alignItems: "center",
+  },
 };
 
 export const AgeCalculator = () => {
-    const [age, setAge] = useState<null | TDate>(null);
-    return (
-        <Container maxWidth={"md"} sx={styles.main}>
-            <Form setAge={setAge} />
-            <AgeDisplay age={age} />
-        </Container>
-    );
+  const [age, setAge] = useState<null | TDate>(null);
+  return (
+    <Container maxWidth={"md"} sx={styles.main}>
+      <Form setAge={setAge} />
+      <AgeDisplay age={age} />
+    </Container>
+  );
 };
